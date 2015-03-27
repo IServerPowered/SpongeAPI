@@ -24,19 +24,19 @@
  */
 package org.spongepowered.api.item.inventory.properties;
 
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.item.inventory.equipment.EquipmentType;
 import org.spongepowered.api.item.inventory.equipment.EquipmentTypes;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * Inventory property which allows queries to be constructed for a particular
+ * Inventory aspect which allows queries to be constructed for a particular
  * equipment slot type.
  */
 public class EquipmentSlotType extends AbstractInventoryProperty<String, EquipmentType> {
 
     /**
-     * Create a new EquipmentSlotType property to match items of the specified
+     * Create a new EquipmentSlotType aspect to match items of the specified
      * value.
      * 
      * @param value EquipmentType to match
@@ -46,7 +46,7 @@ public class EquipmentSlotType extends AbstractInventoryProperty<String, Equipme
     }
 
     /**
-     * Create a new EquipmentSlotType property to match items of the specified
+     * Create a new EquipmentSlotType aspect to match items of the specified
      * value.
      * 
      * @param value EquipmentType to match
@@ -58,7 +58,7 @@ public class EquipmentSlotType extends AbstractInventoryProperty<String, Equipme
     }
 
     /**
-     * Create a new EquipmentSlotType property to match items of the specified
+     * Create a new EquipmentSlotType aspect to match items of the specified
      * value.
      * 
      * @param value EquipmentType to match
@@ -73,34 +73,32 @@ public class EquipmentSlotType extends AbstractInventoryProperty<String, Equipme
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         if (other == null) {
             return 1;
         }
 
-        EquipmentType
-                otherValue =
-                Coerce.<EquipmentType>toPseudoEnum(other.getValue(), EquipmentType.class, EquipmentTypes.class, EquipmentTypes.WORN);
+        EquipmentType otherValue = Coerce.toPseudoEnum(other.getValue(), EquipmentType.class, EquipmentTypes.class, EquipmentTypes.WORN);
         return this.getValue().getId().compareTo(otherValue.getId());
     }
 
     /**
-     * Create an EquipmentSlotType property which matches EquipmentSlotType
+     * Create an EquipmentSlotType aspect which matches EquipmentSlotType
      * properties with equal value.
      * 
      * @param value EquipmentType to match
-     * @return new property
+     * @return new aspect
      */
     public static EquipmentSlotType of(Object value) {
         return new EquipmentSlotType(value, Operator.EQUAL);
     }
 
     /**
-     * Create an EquipmentSlotType property which matches EquipmentSlotType
+     * Create an EquipmentSlotType aspect which matches EquipmentSlotType
      * properties with unequal value.
      * 
      * @param value EquipmentType to match
-     * @return new property
+     * @return new aspect
      */
     public static EquipmentSlotType not(Object value) {
         return new EquipmentSlotType(value, Operator.NOTEQUAL);

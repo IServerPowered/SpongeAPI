@@ -24,16 +24,16 @@
  */
 package org.spongepowered.api.item.inventory.properties;
 
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * A generic integer property. 
+ * A generic integer aspect.
  */
 public class IntProperty extends AbstractInventoryProperty<String, Integer> {
 
     /**
-     * Create a new integer property with the specified value.
+     * Create a new integer aspect with the specified value.
      * 
      * @param value value to match
      */
@@ -42,7 +42,7 @@ public class IntProperty extends AbstractInventoryProperty<String, Integer> {
     }
 
     /**
-     * Create a new integer property with the specified value and logical
+     * Create a new integer aspect with the specified value and logical
      * operator.
      * 
      * @param value value to match
@@ -54,7 +54,7 @@ public class IntProperty extends AbstractInventoryProperty<String, Integer> {
     }
 
     /**
-     * Create a new integer property with the specified value and logical
+     * Create a new integer aspect with the specified value and logical
      * operator.
      * 
      * @param value value to match
@@ -69,71 +69,71 @@ public class IntProperty extends AbstractInventoryProperty<String, Integer> {
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         return this.getValue().compareTo(other == null ? 1 : Coerce.toInteger(other.getValue()));
     }
 
     /**
-     * Create an IntProperty property which matches IntProperty properties with
-     * equal value.
+     * Create an {@link IntProperty} aspect which matches {@link IntProperty}
+     * properties with equal value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static IntProperty of(Object value) {
         return new IntProperty(value, Operator.EQUAL);
     }
 
     /**
-     * Create an IntProperty property which matches IntProperty properties with
-     * unequal value.
+     * Create an {@link IntProperty} aspect which matches {@link IntProperty}
+     * properties with unequal value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static IntProperty not(Object value) {
         return new IntProperty(value, Operator.NOTEQUAL);
     }
 
     /**
-     * Create an IntProperty property which matches IntProperty properties with
-     * value greater than this value.
+     * Create an {@link IntProperty} aspect which matches {@link IntProperty}
+     * properties with value greater than this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static IntProperty greaterThan(Object value) {
         return new IntProperty(value, Operator.GREATER);
     }
 
     /**
-     * Create an IntProperty property which matches IntProperty properties with
-     * value greater than or equal to this value.
+     * Create an {@link IntProperty} aspect which matches {@link IntProperty}
+     * properties with value greater than or equal to this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static IntProperty greaterThanOrEqual(Object value) {
         return new IntProperty(value, Operator.GEQUAL);
     }
 
     /**
-     * Create an IntProperty property which matches IntProperty properties with
-     * value less than this value.
+     * Create an {@link IntProperty} aspect which matches {@link IntProperty}
+     * properties with value less than this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static IntProperty lessThan(Object value) {
         return new IntProperty(value, Operator.LESS);
     }
 
     /**
-     * Create an IntProperty property which matches IntProperty properties with
-     * value less than or equal to this value.
+     * Create an {@link IntProperty} aspect which matches {@link IntProperty}
+     * properties with value less than or equal to this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static IntProperty lessThanOrEqual(Object value) {
         return new IntProperty(value, Operator.LEQUAL);

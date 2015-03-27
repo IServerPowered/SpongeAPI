@@ -25,7 +25,7 @@
 package org.spongepowered.api.event.entity;
 
 import org.spongepowered.api.event.inventory.InventoryEvent;
-import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.ItemStack;
 
 /**
  * Raised when an entity equips an item.

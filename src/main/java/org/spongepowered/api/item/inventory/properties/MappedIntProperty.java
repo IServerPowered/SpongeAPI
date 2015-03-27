@@ -24,18 +24,18 @@
  */
 package org.spongepowered.api.item.inventory.properties;
 
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * An integer-mapped integer property. This is primarily used for supporting the
- * "fields" on the beacon inventory for the moment. This property is also
+ * An integer-mapped integer aspect. This is primarily used for supporting the
+ * "fields" on the beacon inventory for the moment. This aspect is also
  * settable.
  */
 public class MappedIntProperty extends AbstractInventoryProperty<Integer, Integer> {
 
     /**
-     * Create a new MappedIntProperty with the specified key and value.
+     * Create a new MappedIntaspect with the specified key and value.
      * 
      * @param key key to match
      * @param value value to match
@@ -45,11 +45,11 @@ public class MappedIntProperty extends AbstractInventoryProperty<Integer, Intege
     }
 
     /**
-     * Create a new MappedIntProperty with the specified key and value.
+     * Create a new MappedIntaspect with the specified key and value.
      * 
      * @param key key to match
      * @param value value to match
-     * @param operator logical operator to use when comparing this property with
+     * @param operator logical operator to use when comparing this aspect with
      *      other properties
      */
     public MappedIntProperty(Integer key, Integer value, Operator operator) {
@@ -57,11 +57,11 @@ public class MappedIntProperty extends AbstractInventoryProperty<Integer, Intege
     }
 
     /**
-     * Create a new MappedIntProperty with the specified key and value.
+     * Create a new MappedIntaspect with the specified key and value.
      * 
      * @param key key to match
      * @param value value to match
-     * @param operator logical operator to use when comparing this property with
+     * @param operator logical operator to use when comparing this aspect with
      *      other properties
      */
     public MappedIntProperty(Object key, Object value, Operator operator) {
@@ -69,7 +69,7 @@ public class MappedIntProperty extends AbstractInventoryProperty<Integer, Intege
     }
 
     /**
-     * Set this property to the specified value.
+     * Set this aspect to the specified value.
      * 
      * @param value value to set
      */
@@ -81,7 +81,7 @@ public class MappedIntProperty extends AbstractInventoryProperty<Integer, Intege
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         if (other instanceof IntProperty || (other instanceof MappedIntProperty && other.getKey().equals(this.getKey()))) {
             return this.getValue().compareTo(Coerce.toInteger(other.getValue()));
         }
@@ -90,73 +90,73 @@ public class MappedIntProperty extends AbstractInventoryProperty<Integer, Intege
     }
 
     /**
-     * Create a MappedIntProperty property which matches MappedIntProperty
+     * Create a MappedIntaspect aspect which matches MappedIntaspect
      * properties with equal value and matching key.
      * 
      * @param key key to match
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static MappedIntProperty of(Object key, Object value) {
         return new MappedIntProperty(key, value, Operator.EQUAL);
     }
 
     /**
-     * Create a MappedIntProperty property which matches MappedIntProperty
+     * Create a MappedIntaspect aspect which matches MappedIntaspect
      * properties with unequal value and matching key.
      * 
      * @param key key to match
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static MappedIntProperty not(Object key, Object value) {
         return new MappedIntProperty(key, value, Operator.NOTEQUAL);
     }
 
     /**
-     * Create a MappedIntProperty property which matches MappedIntProperty
+     * Create a MappedIntaspect aspect which matches MappedIntaspect
      * properties with value greater than this value and matching key.
      * 
      * @param key key to match
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static MappedIntProperty greaterThan(Object key, Object value) {
         return new MappedIntProperty(key, value, Operator.GREATER);
     }
 
     /**
-     * Create a MappedIntProperty property which matches MappedIntProperty
+     * Create a MappedIntaspect aspect which matches MappedIntaspect
      * properties with value greater than or equal to this value and matching
      * key.
      * 
      * @param key key to match
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static MappedIntProperty greaterThanOrEqual(Object key, Object value) {
         return new MappedIntProperty(key, value, Operator.GEQUAL);
     }
 
     /**
-     * Create a MappedIntProperty property which matches MappedIntProperty
+     * Create a MappedIntaspect aspect which matches MappedIntaspect
      * properties with value less than this value and matching key.
      * 
      * @param key key to match
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static MappedIntProperty lessThan(Object key, Object value) {
         return new MappedIntProperty(key, value, Operator.LESS);
     }
 
     /**
-     * Create a MappedIntProperty property which matches MappedIntProperty
+     * Create a MappedIntaspect aspect which matches MappedIntaspect
      * properties with value less than or equal to this value and matching key.
      * 
      * @param key key to match
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static MappedIntProperty lessThanOrEqual(Object key, Object value) {
         return new MappedIntProperty(key, value, Operator.LEQUAL);

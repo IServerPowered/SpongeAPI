@@ -25,12 +25,12 @@
 package org.spongepowered.api.item.inventory.properties;
 
 /**
- * An inventory property which represents an index within an ordered inventory.
+ * An inventory aspect which represents an index within an ordered inventory.
  */
 public class SlotIndex extends IntProperty {
 
     /**
-     * Creates a new SlotIndex property for the specified value.
+     * Creates a new SlotIndex aspect for the specified value.
      * 
      * @param value value to match
      */
@@ -39,7 +39,7 @@ public class SlotIndex extends IntProperty {
     }
 
     /**
-     * Creates a new SlotIndex property for the specified value and operator.
+     * Creates a new SlotIndex aspect for the specified value and operator.
      * 
      * @param value value to match
      * @param operator the operator to use when comparing with other properties
@@ -49,7 +49,7 @@ public class SlotIndex extends IntProperty {
     }
 
     /**
-     * Creates a new SlotIndex property for the specified value and operator.
+     * Creates a new SlotIndex aspect for the specified value and operator.
      * 
      * @param value value to match
      * @param operator the operator to use when comparing with other properties
@@ -59,66 +59,66 @@ public class SlotIndex extends IntProperty {
     }
 
     /**
-     * Create a SlotIndex property which matches SlotIndex properties with
+     * Create a SlotIndex aspect which matches SlotIndex properties with
      * equal value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotIndex of(Object value) {
         return new SlotIndex(value, Operator.EQUAL);
     }
 
     /**
-     * Create a SlotIndex property which matches SlotIndex properties with
+     * Create a SlotIndex aspect which matches SlotIndex properties with
      * unequal value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotIndex not(Object value) {
         return new SlotIndex(value, Operator.NOTEQUAL);
     }
 
     /**
-     * Create a SlotIndex property which matches SlotIndex properties with
+     * Create a SlotIndex aspect which matches SlotIndex properties with
      * value greater than this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotIndex greaterThan(Object value) {
         return new SlotIndex(value, Operator.GREATER);
     }
 
     /**
-     * Create a SlotIndex property which matches SlotIndex properties with
+     * Create a SlotIndex aspect which matches SlotIndex properties with
      * value greater than or equal to this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotIndex greaterThanOrEqual(Object value) {
         return new SlotIndex(value, Operator.GEQUAL);
     }
 
     /**
-     * Create a SlotIndex property which matches SlotIndex properties with
+     * Create a SlotIndex aspect which matches SlotIndex properties with
      * value less than this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotIndex lessThan(Object value) {
         return new SlotIndex(value, Operator.LESS);
     }
 
     /**
-     * Create a SlotIndex property which matches SlotIndex properties with
+     * Create a SlotIndex aspect which matches SlotIndex properties with
      * value less than or equal to this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotIndex lessThanOrEqual(Object value) {
         return new SlotIndex(value, Operator.LEQUAL);

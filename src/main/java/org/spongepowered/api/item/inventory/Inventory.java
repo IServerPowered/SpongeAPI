@@ -26,6 +26,8 @@ package org.spongepowered.api.item.inventory;
 
 import com.google.common.base.Optional;
 import org.spongepowered.api.Nameable;
+import org.spongepowered.api.data.Property;
+import org.spongepowered.api.item.ItemStack;
 import org.spongepowered.api.item.ItemType;
 import org.spongepowered.api.item.inventory.transaction.InventoryOperationResult;
 import org.spongepowered.api.text.translation.Translatable;
@@ -303,58 +305,58 @@ public interface Inventory extends Iterable<Inventory>, Nameable {
      * no matching properties are defined an empty collection is returned.
      * 
      * @param child the child inventory to inspect
-     * @param property the type of property to query for
-     * @param <T> expected type of inventory property, generic to enable easy
+     * @param aspect the type of aspect to query for
+     * @param <T> expected type of inventory aspect, generic to enable easy
      *      pseudo-duck-typing
      * @return collection of matching properties, may be an empty collection if
      *      no properties match the supplied criterion 
      */
-    <T extends InventoryProperty<?, ?>> Collection<T> getProperties(Inventory child, Class<T> property);
+    <T extends InventoryProperty<?, ?>> Collection<T> getAspects(Inventory child, Class<T> aspect);
 
     /**
      * Gets all properties of the specified type defined directly on this
      * Inventory. For sub-inventories this is effectively the same as
-     * <code>inv.getParent().getProperty(inv, property);</code> but for
+     * <code>inv.getParent().getAspect(inv, aspect);</code> but for
      * top-level inventories may include properties defined on the inventory
      * directly.
      *
-     * @param property the type of property to query for
-     * @param <T> expected type of inventory property, generic to enable easy
+     * @param aspect the type of aspect to query for
+     * @param <T> expected type of inventory aspect, generic to enable easy
      *      pseudo-duck-typing
      * @return collection of matching properties, may be an empty collection if
      *      no properties match the supplied criterion 
      */
-    <T extends InventoryProperty<?, ?>> Collection<T> getProperties(Class<T> property);
+    <T extends InventoryProperty<?, ?>> Collection<T> getAspects(Class<T> aspect);
 
     /**
-     * Gets the property with the specified key defined in <em>this</em>
+     * Gets the aspect with the specified key defined in <em>this</em>
      * inventory for the specified (immediate) sub-inventory.
      * 
      * @param child the child inventory to inspect
-     * @param property the type of property to query for
-     * @param key Property key to search for
-     * @param <T> expected type of inventory property, generic to enable easy
+     * @param aspect the type of aspect to query for
+     * @param key Aspect key to search for
+     * @param <T> expected type of inventory aspect, generic to enable easy
      *      pseudo-duck-typing
-     * @return matching properties, may be absent if no property matched the
+     * @return matching properties, may be absent if no aspect matched the
      *      supplied criteria 
      */
-    <T extends InventoryProperty<?, ?>> Optional<T> getProperty(Inventory child, Class<T> property, Object key);
+    <T extends InventoryProperty<?, ?>> Optional<T> getAspect(Inventory child, Class<T> aspect, Object key);
 
     /**
-     * Gets a property with the specified key defined directly on this Inventory
+     * Gets a aspect with the specified key defined directly on this Inventory
      * if one is defined. For sub-inventories this is effectively the same as
-     * <code>inv.getParent().getProperty(inv, property, key);</code> but for
+     * <code>inv.getParent().getAspect(inv, aspect, key);</code> but for
      * top-level inventories may include properties defined on the inventory
      * directly.
      * 
-     * @param property the type of property to query for
-     * @param key Property key to search for
-     * @param <T> expected type of inventory property, generic to enable easy
+     * @param aspect the type of aspect to query for
+     * @param key Aspect key to search for
+     * @param <T> expected type of inventory aspect, generic to enable easy
      *      pseudo-duck-typing
-     * @return matching properties, may be absent if no property matched the
+     * @return matching properties, may be absent if no aspect matched the
      *      supplied criteria 
      */
-    <T extends InventoryProperty<?, ?>> Optional<T> getProperty(Class<T> property, Object key);
+    <T extends InventoryProperty<?, ?>> Optional<T> getAspect(Class<T> aspect, Object key);
 
     /**
      * Query this inventory for inventories matching any of the supplied types.
@@ -400,12 +402,12 @@ public interface Inventory extends Iterable<Inventory>, Nameable {
 
     /**
      * Query this inventory for inventories which match any of the supplied
-     * properties. The <code>equals</code> method of each property is called on
-     * each child inventory which has the supplied property. Logical
+     * properties. The <code>equals</code> method of each aspect is called on
+     * each child inventory which has the supplied aspect. Logical
      * <code>OR</code> is applied between operands. This method is effectively
      * the same as calling {@link #query} with an
-     * {@link org.spongepowered.api.util.Property.Operator} of
-     * {@link org.spongepowered.api.util.Property.Operator#EQUAL}.
+     * {@link Property.Operator} of
+     * {@link Property.Operator#EQUAL}.
      * 
      * @param props inventory properties to query for
      * @param <T> expected inventory type, specified as generic to allow easy

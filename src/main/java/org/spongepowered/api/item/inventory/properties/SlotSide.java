@@ -24,18 +24,18 @@
  */
 package org.spongepowered.api.item.inventory.properties;
 
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.util.Coerce;
 import org.spongepowered.api.util.Direction;
 
 /**
- * Property which represents a "side" for a particular slot, for use in querying
+ * aspect which represents a "side" for a particular slot, for use in querying
  * "sided inventories".
  */
 public class SlotSide extends AbstractInventoryProperty<String, Direction> {
 
     /**
-     * Create a new SlotSide property for matching the specified value.
+     * Create a new SlotSide aspect for matching the specified value.
      * 
      * @param value the value to match
      */
@@ -44,7 +44,7 @@ public class SlotSide extends AbstractInventoryProperty<String, Direction> {
     }
 
     /**
-     * Create a new SlotSide property for matching the specified value with the
+     * Create a new SlotSide aspect for matching the specified value with the
      * specified operator.
      * 
      * @param value the value to match
@@ -55,7 +55,7 @@ public class SlotSide extends AbstractInventoryProperty<String, Direction> {
     }
 
     /**
-     * Create a new SlotSide property for matching the specified value with the
+     * Create a new SlotSide aspect for matching the specified value with the
      * specified operator.
      * 
      * @param value the value to match
@@ -69,31 +69,31 @@ public class SlotSide extends AbstractInventoryProperty<String, Direction> {
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         if (other == null) {
             return 1;
         }
 
-        return this.getValue().compareTo(Coerce.<Direction>toEnum(other.getValue(), Direction.class, Direction.NONE));
+        return this.getValue().compareTo(Coerce.toEnum(other.getValue(), Direction.class, Direction.NONE));
     }
 
     /**
-     * Create a SlotSide property which matches SlotSide properties with equal
+     * Create a SlotSide aspect which matches SlotSide properties with equal
      * value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotSide of(Object value) {
         return new SlotSide(value, Operator.EQUAL);
     }
 
     /**
-     * Create a SlotSide property which matches SlotSide properties with unequal
+     * Create a SlotSide aspect which matches SlotSide properties with unequal
      * value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotSide not(Object value) {
         return new SlotSide(value, Operator.NOTEQUAL);

@@ -25,17 +25,17 @@
 package org.spongepowered.api.item.inventory.properties;
 
 import com.flowpowered.math.vector.Vector2i;
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * Property for inventories of a particular size. For example to allow querying
+ * aspect for inventories of a particular size. For example to allow querying
  * for InventoryRows of length 9 or GridInventories of size 3x3
  */
 public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
 
     /**
-     * Create a new InventorySize property with the specified value.
+     * Create a new InventorySize aspect with the specified value.
      * 
      * @param value size to match
      */
@@ -44,7 +44,7 @@ public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new InventorySize property with the specified dimensions.
+     * Create a new InventorySize aspect with the specified dimensions.
      * 
      * @param width width of the inventory to match
      * @param height height of the inventory to match
@@ -54,10 +54,10 @@ public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new InventorySize property with the specified value.
+     * Create a new InventorySize aspect with the specified value.
      * 
      * @param value size to match
-     * @param operator logical operator to use when comparing this property with
+     * @param operator logical operator to use when comparing this aspect with
      *      other properties
      */
     public InventorySize(Vector2i value, Operator operator) {
@@ -65,11 +65,11 @@ public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new InventorySize property with the specified dimensions.
+     * Create a new InventorySize aspect with the specified dimensions.
      * 
      * @param width width of the inventory to match
      * @param height height of the inventory to match
-     * @param operator logical operator to use when comparing this property with
+     * @param operator logical operator to use when comparing this aspect with
      *      other properties
      */
     public InventorySize(int width, int height, Operator operator) {
@@ -77,10 +77,10 @@ public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new InventorySize property with the specified value.
+     * Create a new InventorySize aspect with the specified value.
      * 
      * @param value size to match
-     * @param operator logical operator to use when comparing this property with
+     * @param operator logical operator to use when comparing this aspect with
      *      other properties
      */
     public InventorySize(Object value, Operator operator) {
@@ -109,7 +109,7 @@ public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         if (other == null) {
             return 1;
         }
@@ -118,78 +118,78 @@ public class InventorySize extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with equal value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize of(Object value) {
         return new InventorySize(value, Operator.EQUAL);
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with equal value.
      * 
      * @param width x coordinate to match
      * @param height y coordinate to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize of(int width, int height) {
         return new InventorySize(new Vector2i(width, height), Operator.EQUAL);
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with unequal value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize not(Object value) {
         return new InventorySize(value, Operator.NOTEQUAL);
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with value greater than this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize greaterThan(Object value) {
         return new InventorySize(value, Operator.GREATER);
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with value greater than or equal to this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize greaterThanOrEqual(Object value) {
         return new InventorySize(value, Operator.GEQUAL);
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with value less than this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize lessThan(Object value) {
         return new InventorySize(value, Operator.LESS);
     }
 
     /**
-     * Create an InventorySize property which matches InventorySize properties
+     * Create an InventorySize aspect which matches InventorySize properties
      * with value less than or equal to this value.
      * 
      * @param value value to match
-     * @return new property
+     * @return new aspect
      */
     public static InventorySize lessThanOrEqual(Object value) {
         return new InventorySize(value, Operator.LEQUAL);

@@ -24,12 +24,13 @@
  */
 package org.spongepowered.api.item.inventory.properties;
 
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.item.inventory.InventoryProperty;
 
 import javax.annotation.Nullable;
 
 /**
- * Base class for InventoryProperty implementations which stubs out all of the
+ * Base class for InventoryAspect implementations which stubs out all of the
  * common boilerplate functionality.
  *
  * @param <K> Key type, use {@link String} if no particular key type is required
@@ -65,7 +66,7 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     /**
      * Initialise key to default, and value to the supplied value.
      *
-     * @param value The value of the property
+     * @param value The value of the aspect
      */
     protected AbstractInventoryProperty(@Nullable V value) {
         this(null, value);
@@ -75,8 +76,8 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
      * Initialise the value to the specified value and use the specified
      * operator, use the default key.
      *
-     * @param value The property value
-     * @param op The operator for the property
+     * @param value The aspect value
+     * @param op The operator for the aspect
      */
     protected AbstractInventoryProperty(@Nullable V value, Operator op) {
         this(null, value, op);
@@ -85,8 +86,8 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     /**
      * Use the specified key and value and set operator to the default.
      *
-     * @param key The key identifying the property
-     * @param value The property value
+     * @param key The key identifying the aspect
+     * @param value The aspect value
      */
     protected AbstractInventoryProperty(@Nullable K key, @Nullable V value) {
         this(key, value, null);
@@ -101,7 +102,7 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     /**
      * Get the default value for {@link #key}, used in case null is passed in
      * (since we can't have a null key). In general this should return the class
-     * name of the property itself but subclasses are free to alter this
+     * name of the aspect itself but subclasses are free to alter this
      * behaviour if they wish.
      *
      * @param value Value passed in to the ctor, supplied in case a subclass
@@ -116,8 +117,8 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     /**
      * Return the default operator to use, based on the supplied key and value.
      *
-     * @param key Property key
-     * @param value Property initial value, may be null
+     * @param key Aspect key
+     * @param value Aspect initial value, may be null
      * @return operator to use
      */
     protected Operator getDefaultOperator(K key, @Nullable V value) {
@@ -125,7 +126,7 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     }
 
     /* (non-Javadoc)
-     * @see org.spongepowered.api.item.inventory.InventoryProperty#getKey()
+     * @see org.spongepowered.api.item.inventory.InventoryAspect#getKey()
      */
     @Override
     public K getKey() {
@@ -133,7 +134,7 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     }
 
     /* (non-Javadoc)
-     * @see org.spongepowered.api.item.inventory.InventoryProperty#getValue()
+     * @see org.spongepowered.api.item.inventory.InventoryAspect#getValue()
      */
     @Override
     public V getValue() {
@@ -141,7 +142,7 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     }
 
     /* (non-Javadoc)
-     * @see org.spongepowered.api.item.inventory.InventoryProperty#getOperator()
+     * @see org.spongepowered.api.item.inventory.InventoryAspect#getOperator()
      */
     @Override
     public Operator getOperator() {
@@ -149,11 +150,11 @@ public abstract class AbstractInventoryProperty<K, V> implements InventoryProper
     }
 
     /* (non-Javadoc)
-     * @see org.spongepowered.api.item.inventory.InventoryProperty#matches(
-     *          org.spongepowered.api.item.inventory.InventoryProperty)
+     * @see org.spongepowered.api.item.inventory.InventoryAspect#matches(
+     *          org.spongepowered.api.item.inventory.InventoryAspect)
      */
     @Override
-    public boolean matches(@Nullable InventoryProperty<?, ?> other) {
+    public boolean matches(@Nullable Property<?, ?> other) {
         return this.getOperator().compare(this, other);
     }
 

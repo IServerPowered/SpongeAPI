@@ -24,16 +24,16 @@
  */
 package org.spongepowered.api.item.inventory.properties;
 
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * A generic String property for an inventory.
+ * A generic String aspect for an inventory.
  */
 public class StringProperty extends AbstractInventoryProperty<String, String> {
 
     /**
-     * Create a new String property for matching the specified value.
+     * Create a new String aspect for matching the specified value.
      * 
      * @param value the value to match
      */
@@ -42,7 +42,7 @@ public class StringProperty extends AbstractInventoryProperty<String, String> {
     }
 
     /**
-     * Create a new String property for matching the specified value with the
+     * Create a new String aspect for matching the specified value with the
      * specified operator.
      * 
      * @param value the value to match
@@ -53,7 +53,7 @@ public class StringProperty extends AbstractInventoryProperty<String, String> {
     }
 
     /**
-     * Create a new String property for matching the specified value with the
+     * Create a new String aspect for matching the specified value with the
      * specified operator.
      * 
      * @param value the value to match
@@ -67,7 +67,7 @@ public class StringProperty extends AbstractInventoryProperty<String, String> {
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         if (other == null) {
             return 1;
         }
@@ -76,66 +76,66 @@ public class StringProperty extends AbstractInventoryProperty<String, String> {
     }
 
     /**
-     * Create a StringProperty property which matches StringProperty properties
+     * Create a Stringaspect aspect which matches Stringaspect properties
      * with equal value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static StringProperty of(Object value) {
         return new StringProperty(value, Operator.EQUAL);
     }
 
     /**
-     * Create a StringProperty property which matches StringProperty properties
+     * Create a Stringaspect aspect which matches Stringaspect properties
      * with unequal value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static StringProperty not(Object value) {
         return new StringProperty(value, Operator.NOTEQUAL);
     }
 
     /**
-     * Create a StringProperty property which matches StringProperty properties
+     * Create a Stringaspect aspect which matches Stringaspect properties
      * with value greater than this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static StringProperty greaterThan(Object value) {
         return new StringProperty(value, Operator.GREATER);
     }
 
     /**
-     * Create a StringProperty property which matches StringProperty properties
+     * Create a Stringaspect aspect which matches Stringaspect properties
      * with value greater than or equal to this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static StringProperty greaterThanOrEqual(Object value) {
         return new StringProperty(value, Operator.GEQUAL);
     }
 
     /**
-     * Create a StringProperty property which matches StringProperty properties
+     * Create a Stringaspect aspect which matches Stringaspect properties
      * with value less than this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static StringProperty lessThan(Object value) {
         return new StringProperty(value, Operator.LESS);
     }
 
     /**
-     * Create a StringProperty property which matches StringProperty properties
+     * Create a Stringaspect aspect which matches Stringaspect properties
      * with value less than or equal to this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static StringProperty lessThanOrEqual(Object value) {
         return new StringProperty(value, Operator.LEQUAL);

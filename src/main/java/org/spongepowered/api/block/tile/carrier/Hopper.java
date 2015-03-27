@@ -25,8 +25,8 @@
 
 package org.spongepowered.api.block.tile.carrier;
 
-import org.spongepowered.api.block.tile.TileDataTransactionResult;
-import org.spongepowered.api.block.tile.data.HopperData;
+import org.spongepowered.api.data.DataTransactionResult;
+import org.spongepowered.api.data.manipulators.HopperData;
 
 /**
  * Represents a Hopper.
@@ -43,7 +43,7 @@ public interface Hopper extends TileEntityCarrier {
     void transferItem();
 
     /**
-     * Gets the current {@link HopperData} of this hopper.
+     * Gets a copy of the current {@link HopperData}.
      *
      * <p>Note that as time goes on, the {@link HopperData} may not remain in
      * sync with the {@link Hopper} tile entity. It is advisable that a
@@ -63,5 +63,5 @@ public interface Hopper extends TileEntityCarrier {
      * @param data The hopper data to set
      * @return The transaction result
      */
-    TileDataTransactionResult setHopperData(HopperData data);
+    DataTransactionResult setHopperData(HopperData data);
 }

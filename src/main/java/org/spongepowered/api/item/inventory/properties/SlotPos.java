@@ -25,18 +25,18 @@
 package org.spongepowered.api.item.inventory.properties;
 
 import com.flowpowered.math.vector.Vector2i;
-import org.spongepowered.api.item.inventory.InventoryProperty;
+import org.spongepowered.api.data.Property;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * An inventory property which represents a position within a grid. Bear in mind
- * that this property should be queried against the relevant parent, since a
+ * An inventory aspect which represents a position within a grid. Bear in mind
+ * that this aspect should be queried against the relevant parent, since a
  * slot may have multiple parent inventories. 
  */
 public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
 
     /**
-     * Create a new SlotPos property for matching the specified value.
+     * Create a new SlotPos aspect for matching the specified value.
      * 
      * @param value the value to match
      */
@@ -45,7 +45,7 @@ public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new SlotPos property for matching the specified value.
+     * Create a new SlotPos aspect for matching the specified value.
      * 
      * @param x slot x position
      * @param y slot y position
@@ -55,7 +55,7 @@ public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new SlotPos property for matching the specified value with the
+     * Create a new SlotPos aspect for matching the specified value with the
      * specified operator.
      * 
      * @param value the value to match
@@ -66,7 +66,7 @@ public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new SlotPos property for matching the specified value with the
+     * Create a new SlotPos aspect for matching the specified value with the
      * specified operator.
      * 
      * @param x slot x position
@@ -78,7 +78,7 @@ public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create a new SlotPos property for matching the specified value with the
+     * Create a new SlotPos aspect for matching the specified value with the
      * specified operator.
      * 
      * @param value the value to match
@@ -110,7 +110,7 @@ public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(InventoryProperty<?, ?> other) {
+    public int compareTo(Property<?, ?> other) {
         if (other == null) {
             return 1;
         }
@@ -119,78 +119,78 @@ public class SlotPos extends AbstractInventoryProperty<String, Vector2i> {
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with equal
+     * Create an SlotPos aspect which matches SlotPos properties with equal
      * value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos of(Object value) {
         return new SlotPos(value, Operator.EQUAL);
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with equal
+     * Create an SlotPos aspect which matches SlotPos properties with equal
      * value.
      * 
      * @param x the x position of the slot to match
      * @param y the y position of the slot to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos of(int x, int y) {
         return new SlotPos(new Vector2i(x, y), Operator.EQUAL);
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with unequal
+     * Create an SlotPos aspect which matches SlotPos properties with unequal
      * value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos not(Object value) {
         return new SlotPos(value, Operator.NOTEQUAL);
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with value
+     * Create an SlotPos aspect which matches SlotPos properties with value
      * greater than this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos greaterThan(Object value) {
         return new SlotPos(value, Operator.GREATER);
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with value
+     * Create an SlotPos aspect which matches SlotPos properties with value
      * greater than or equal to this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos greaterThanOrEqual(Object value) {
         return new SlotPos(value, Operator.GEQUAL);
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with value
+     * Create an SlotPos aspect which matches SlotPos properties with value
      * less than this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos lessThan(Object value) {
         return new SlotPos(value, Operator.LESS);
     }
 
     /**
-     * Create an SlotPos property which matches SlotPos properties with value
+     * Create an SlotPos aspect which matches SlotPos properties with value
      * less than or equal to this value.
      * 
      * @param value the value to match
-     * @return new property
+     * @return new aspect
      */
     public static SlotPos lessThanOrEqual(Object value) {
         return new SlotPos(value, Operator.LEQUAL);

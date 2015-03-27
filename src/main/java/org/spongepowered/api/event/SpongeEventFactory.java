@@ -37,8 +37,8 @@ import org.spongepowered.api.block.BlockSnapshot;
 import org.spongepowered.api.block.tile.carrier.BrewingStand;
 import org.spongepowered.api.block.tile.carrier.Furnace;
 import org.spongepowered.api.block.tile.carrier.TileEntityCarrier;
-import org.spongepowered.api.block.tile.data.BrewingData;
-import org.spongepowered.api.block.tile.data.FurnaceData;
+import org.spongepowered.api.data.manipulators.BrewingData;
+import org.spongepowered.api.data.manipulators.FurnaceData;
 import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.entity.EntityInteractionType;
 import org.spongepowered.api.entity.Item;
@@ -130,7 +130,7 @@ import org.spongepowered.api.event.world.GameRuleChangeEvent;
 import org.spongepowered.api.event.world.WorldCreateEvent;
 import org.spongepowered.api.event.world.WorldLoadEvent;
 import org.spongepowered.api.event.world.WorldUnloadEvent;
-import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.ItemStack;
 import org.spongepowered.api.item.inventory.types.TileEntityInventory;
 import org.spongepowered.api.stats.Statistic;
 import org.spongepowered.api.stats.achievement.Achievement;
@@ -1419,7 +1419,7 @@ public final class SpongeEventFactory {
 
     /**
      * Creates a new {@link AchievementEvent}.
-     *
+     * 
      * @param game The game instance for this {@link GameEvent}
      * @param player The player involved in this event
      * @param achievement The achievement being added to the player
@@ -1439,16 +1439,15 @@ public final class SpongeEventFactory {
 
     /**
      * Creates a new {@link StatisticChangeEvent}.
-     *
+     * 
      * @param game The game instance for this {@link GameEvent}
      * @param player The player involved in this event
      * @param changedStatistic Any statistics changed by this event
-     * @param oldValue The old value of the statistic
      * @param newValue The new value of the statistic
      * @return A new instance of the event
      */
-    public static StatisticChangeEvent createStatisticChangeEvent(Game game, Player player, Statistic changedStatistic,
-                                                                  long newValue, long oldValue) {
+    public static StatisticChangeEvent createStatisticChangeEvent(Game game, Player player, Statistic changedStatistic, long newValue,
+                                                                  long oldValue) {
         Map<String, Object> values = Maps.newHashMap();
         values.put("game", game);
         values.put("entity", player);

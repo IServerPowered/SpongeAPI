@@ -24,7 +24,8 @@
  */
 package org.spongepowered.api.block.tile;
 
-import org.spongepowered.api.block.tile.data.ComparatorData;
+import org.spongepowered.api.data.DataTransactionResult;
+import org.spongepowered.api.data.manipulators.ComparatorData;
 
 /**
  * Represents a Redstone Comparator.
@@ -32,7 +33,7 @@ import org.spongepowered.api.block.tile.data.ComparatorData;
 public interface Comparator extends TileEntity {
 
     /**
-     * Gets the data that this {@link Comparator} is currently using.
+     * Gets a copy of the current {@link ComparatorData}.
      *
      * @return The current comparator data
      */
@@ -47,6 +48,6 @@ public interface Comparator extends TileEntity {
      * @param data The comparator data to set
      * @return The transaction result
      */
-    TileDataTransactionResult setComparatorData(ComparatorData data);
+    DataTransactionResult setComparatorData(ComparatorData data);
 
 }

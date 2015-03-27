@@ -29,13 +29,13 @@ import org.spongepowered.api.item.inventory.equipment.EquipmentTypes;
 import org.spongepowered.api.util.Coerce;
 
 /**
- * Inventory property which allows queries to be constructed for a particular
+ * Inventory aspect which allows queries to be constructed for a particular
  * worn equipment slot type.
  */
 public class ArmorSlotType extends EquipmentSlotType {
 
     /**
-     * Create a new ArmorSlotType property which matches armour slots of the
+     * Create a new ArmorSlotType aspect which matches armour slots of the
      * specified type.
      * 
      * @param value armour type to match
@@ -45,7 +45,7 @@ public class ArmorSlotType extends EquipmentSlotType {
     }
 
     /**
-     * Create a new ArmorSlotType property which matches armour slots of the
+     * Create a new ArmorSlotType aspect which matches armour slots of the
      * specified type.
      * 
      * @param value armour type to match
@@ -56,7 +56,7 @@ public class ArmorSlotType extends EquipmentSlotType {
     }
 
     /**
-     * Create a new ArmorSlotType property which matches armour slots of the
+     * Create a new ArmorSlotType aspect which matches armour slots of the
      * specified type.
      * 
      * @param value armour type to match
@@ -67,22 +67,22 @@ public class ArmorSlotType extends EquipmentSlotType {
     }
 
     /**
-     * Create an ArmourSlotType property which matches ArmourSlotType properties
+     * Create an ArmourSlotType aspect which matches ArmourSlotType properties
      * with equal value.
      * 
      * @param value Type of worn equipment to match
-     * @return new property
+     * @return new aspect
      */
     public static ArmorSlotType of(Object value) {
         return new ArmorSlotType(value, Operator.EQUAL);
     }
 
     /**
-     * Create an ArmourSlotType property which matches ArmourSlotType properties
+     * Create an ArmourSlotType aspect which matches ArmourSlotType properties
      * with unequal value.
      * 
      * @param value Type of worn equipment to match
-     * @return new property
+     * @return new aspect
      */
     public static ArmorSlotType not(Object value) {
         return new ArmorSlotType(value, Operator.NOTEQUAL);

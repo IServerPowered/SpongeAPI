@@ -25,8 +25,8 @@
 
 package org.spongepowered.api.util;
 
+import org.spongepowered.api.data.DataContainer;
 import org.spongepowered.api.entity.EntityType;
-import org.spongepowered.api.service.persistence.data.DataContainer;
 
 /**
  * Represents an entity type with a numerical weight used for random selection

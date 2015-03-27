@@ -25,7 +25,7 @@
 
 package org.spongepowered.api.item;
 
-import org.spongepowered.api.service.persistence.DataSerializable;
+import org.spongepowered.api.data.DataSerializable;
 import org.spongepowered.api.util.annotation.CatalogedBy;
 
 /**
